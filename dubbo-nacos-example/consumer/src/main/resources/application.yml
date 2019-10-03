@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: apache-dubbo-consumer
+
+#此处不要扫描包的服务  因为没有提供任何的rpc服务
+#但是需要注册到nacos上  注意 注册使用的包 dubbo-spring-boot
+nacos:
+  host: 192.168.1.110
+  port: 8848
+
+dubbo:
+  registry:
+    address: nacos://${nacos.host}:${nacos.port}

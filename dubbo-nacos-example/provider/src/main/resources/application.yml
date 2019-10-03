@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: apache-dubbo-provider
+
+nacos:
+  server-address: 192.168.1.110
+  port: 8848
+
+#dubbo的配置 包dubbo-spring-boot 扫描包为是需要暴露的接口包
+# protocol 指定端口 自适应端口
+# registry 注册nacos地址 就这种写法
+dubbo:
+  scan:
+    base-packages: com.wudi.service
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: nacos://${nacos.server-address}:${nacos.port}
+
+
+
